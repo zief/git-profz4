@@ -15,17 +15,29 @@ const options = {
 	}
 }
 
-let request = https.request(options, (result) => {
-	console.log('Got response: ', result.statusCode)
+// TODO: [x] Read the data
+let request = https.request(options, (response) => {
+	
+	let body = ''
+	response.on('data', (data) => {
+		body = body + data
+	})
+	response.on('end', () =>{
+		console.log(body)
+		console.log(typeof body)
+	})
+	// TODO: Parse the data
+	 // Conver string to JSON (JavaScript Object)
+	// TODO: Print the data out
+
 })
 
 request.end()
 request.on('error', (e) =>{
 	console.error(e)
 })
-// TODO: Read the data
-// TODO: Parse the data
-// TODO: Print the data out
+
+
 
 
 
