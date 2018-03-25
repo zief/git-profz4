@@ -23,11 +23,12 @@ let request = https.request(options, (response) => {
 		body = body + data
 	})
 	response.on('end', () =>{
-		console.log(body)
-		console.log(typeof body)
+		// TODO: [x] Parse the data
+	 	// Conver string to JSON (JavaScript Object)
+	 	let profile = JSON.parse(body)
+	 	console.log(profile.avatar_url)
 	})
-	// TODO: Parse the data
-	 // Conver string to JSON (JavaScript Object)
+
 	// TODO: Print the data out
 
 })
